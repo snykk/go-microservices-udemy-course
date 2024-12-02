@@ -50,8 +50,14 @@ func main() {
 		Models: data.New(client),
 	}
 
+	err = rpc.Register(new(RPCServer))
+	if err != nil {
+		log.Panic(err)
+	}
 	go app.rpcListen()
-	
+
+	go app.gRPCListen()
+
 	// start web server
 	log.Println("Starting service on port", webPort)
 	srv := &http.Server{
