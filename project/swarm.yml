@@ -1,11 +1,25 @@
 version: "3"
 
 services:
-    front-end:
-        image: najibfikri/go-udemy-front-end:1.0.0
+    caddy:
+        image: najibfikri/go-udemy-micro-caddy:1.0.0
         deploy:
             mode: replicated
             replicas: 1
+        ports:
+            - "80:80"
+            - "443:443"
+        volumes:
+            - caddy_data:/data
+            - caddy_config:/config
+
+    front-end:
+        image: najibfikri/go-udemy-front-end:1.0.1
+        deploy:
+            mode: replicated
+            replicas: 1
+        environment:
+            BROKER_URL: "http://backend"
 
     broker-service:
         image: najibfikri/go-udemy-broker-service:1.0.1
@@ -87,3 +101,8 @@ services:
             POSTGRES_DB: users
         volumes:
             - ./db-data/postgres/:/var/lib/postgresql/data/
+
+volumes:
+    caddy_data:
+        external: true
+    caddy_config:
