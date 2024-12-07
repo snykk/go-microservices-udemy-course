@@ -71,3 +71,9 @@ stop:
 	@echo "Stopping front end..."
 	@-pkill -SIGTERM -f "./${FRONT_END_BINARY}"
 	@echo "Stopped front end!"
+
+
+# docker swarm init
+# docker stack deploy -c swarm.yml myapp
+# docker service 
+# docker stack rm myapp
