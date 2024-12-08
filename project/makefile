@@ -125,3 +125,18 @@ stop:
 # kubectl delete svc broker-service mongo rabbitmq
 # kubectl get svc
 
+
+
+
+# kubectl get svc
+# kubectl delete svc broker-service
+# kubectl expose deployment broker-service --type=LoadBalancer --port=8080 --target-port=8080 
+# minikube tunnel
+
+
+
+# minikube addons enable ingress
+# kubectl apply -f ingress.yml
+# kubectl get ingress
+# <add dns to host>
+# minikube tunnel
