@@ -95,6 +95,33 @@ stop:
 # docker service update --image najibfikri/go-udemy-logger:1.0.1 myapp_logger_service
 
 
+# Minikube (kubernetes)
+# minikube start --nodes=2
+# minikube delete
+# minikube start --nodes=2
+# minikube stop
+# minikube start 
+# minikube status
+# minikube dashboard
 
+# kubectl get pods
+# kubectl get pods -A
 
+# kubectl apply -f k8s
+
+# kubectl get svc
+
+# kubectl get deployments
+
+# kubectl apply -f k8s/rabbit.yml
+
+# kubectl logs <pods_name>
+
+# kubectl get deployments
+# kubectl delete deployments broker-service mongo rabbitmq
+# kubectl get deployments
+
+# kubectl get svc
+# kubectl delete svc broker-service mongo rabbitmq
+# kubectl get svc
 
